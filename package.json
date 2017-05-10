@@ -1,5 +1,5 @@
 {
-  "name": "skedify-web-plugin-uri-encoding",
+  "name": "skedify-uri-encoding",
   "version": "0.0.0-development",
   "description": "Encoding of JSON object",
   "main": "lib/index.js",
@@ -18,7 +18,7 @@
     "postmerge": "npm install",
     "postrewrite": "npm install"
   },
-  "homepage": "https://github.com/skedify/skedify-web-plugin-uri-encoding",
+  "homepage": "https://github.com/skedify/skedify-uri-encoding",
   "author": {
     "name": "Skedify",
     "email": "info@skedify.co",
@@ -26,14 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skedify/skedify-web-plugin-uri-encoding.git"
+    "url": "https://github.com/skedify/skedify-uri-encoding.git"
   },
   "bugs": {
-    "url": "https://github.com/skedify/skedify-web-plugin-uri-encoding/issues"
+    "url": "https://github.com/skedify/skedify-uri-encoding/issues"
   },
   "keywords": [
     "skedify",
-    "web-plugin",
     "uri-encoding"
   ],
   "files": [
