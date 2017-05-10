@@ -4,6 +4,7 @@
     es6: true
     browser: true
     node: false
+    jest: true
   parser: babel-eslint
   parserOptions:
     sourceType: module
