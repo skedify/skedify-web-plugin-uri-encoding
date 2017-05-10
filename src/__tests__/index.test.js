@@ -13,7 +13,6 @@ const exampleObject = {
 };
 
 describe('skedify-uri-encoding', () => {
-
   test('should return correct hash when no object is given', () => {
     expect(encodeURIParameters()).toMatchSnapshot();
   });
@@ -33,5 +32,4 @@ describe('skedify-uri-encoding', () => {
   test('should return correct object when string is given', () => {
     expect(decodeURIParameters('eyJhS2V5IjoiYVZhbHVlIn0f')).toMatchSnapshot();
   });
-
 });
