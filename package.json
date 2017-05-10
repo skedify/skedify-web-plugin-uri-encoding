@@ -41,7 +41,10 @@
     "lib"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "atob": "^2.0.3",
+    "btoa": "^1.1.2"
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-eslint": "^7.2.3",
