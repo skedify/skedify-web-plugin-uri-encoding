@@ -44,7 +44,7 @@
     better/no-nulls: 2
     better/no-reassigns: 0
     better/no-typeofs: 0
-    better/explicit-return: 1
+    better/explicit-return: 0
     better/no-variable-declaration: 0
     prefer-template: 2
     prefer-const:
