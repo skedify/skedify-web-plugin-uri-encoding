@@ -1,17 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`repeat (when String.repeat does not exist) should return aWord five times 1`] = `"aWordaWordaWordaWordaWord"`;
+exports[`repeat (when String.repeat does not exist) should throw a range error when count is infinity 1`] = `"repeat count must be less than infinity"`;
 
-exports[`repeat (when String.repeat does not exist) should return empty string when count is null 1`] = `""`;
+exports[`repeat (when String.repeat does not exist) should throw a range error when count is negative 1`] = `"repeat count must be non-negative"`;
 
-exports[`repeat (when String.repeat does not exist) should return empty string when empty string given 1`] = `""`;
-
-exports[`repeat (when String.repeat does not exist) should throw error when count is Infinity 1`] = `"repeat count must be less than infinity"`;
-
-exports[`repeat (when String.repeat does not exist) should throw error when count is negative 1`] = `"repeat count must be non-negative"`;
-
-exports[`repeat (when String.repeat exist) should return aWord five times 1`] = `"aWordaWordaWordaWordaWord"`;
-
-exports[`repeat (when String.repeat exist) should return empty string when count is null 1`] = `""`;
-
-exports[`repeat (when String.repeat exist) should return empty string when empty string given 1`] = `""`;
+exports[`repeat (when String.repeat does not exist) should throw a range error when count is negative infinity 1`] = `"repeat count must be non-negative"`;
