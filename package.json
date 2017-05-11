@@ -1,5 +1,5 @@
 {
-  "name": "skedify-web-plugin-uri-encoding",
+  "name": "skedify-uri-encoding",
   "version": "0.0.0-development",
   "description": "Encoding of JSON object",
   "main": "lib/index.js",
@@ -8,7 +8,9 @@
     "lint": "eslint --cache src/**/*.js test/**/*.js",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
-    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "test": "NODE_ENV=test jest",
+    "tdd": "npm run test -- --watch",
+    "check-coverage": "CI=true NODE_ENV=test jest --collectCoverageFrom=\"src/**/*.js\" --coverage",
     "prepublish": "npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commit": "git-cz",
@@ -18,7 +20,7 @@
     "postmerge": "npm install",
     "postrewrite": "npm install"
   },
-  "homepage": "https://github.com/skedify/skedify-web-plugin-uri-encoding",
+  "homepage": "https://github.com/skedify/skedify-uri-encoding",
   "author": {
     "name": "Skedify",
     "email": "info@skedify.co",
@@ -26,28 +28,30 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/skedify/skedify-web-plugin-uri-encoding.git"
+    "url": "https://github.com/skedify/skedify-uri-encoding.git"
   },
   "bugs": {
-    "url": "https://github.com/skedify/skedify-web-plugin-uri-encoding/issues"
+    "url": "https://github.com/skedify/skedify-uri-encoding/issues"
   },
   "keywords": [
     "skedify",
-    "web-plugin",
     "uri-encoding"
   ],
   "files": [
     "lib"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "json-stable-stringify": "^1.0.1"
+  },
   "devDependencies": {
+    "atob": "^2.0.3",
     "babel": "^6.23.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-istanbul": "^4.1.3",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "codecov.io": "^0.1.6",
+    "btoa": "^1.1.2",
     "commitizen": "^2.9.6",
     "cross-env": "^3.2.4",
     "cz-conventional-changelog": "^2.0.0",
@@ -56,7 +60,7 @@
     "eslint-plugin-filenames": "^1.2.0",
     "eslint-plugin-require-in-package": "^1.0.3",
     "husky": "^0.13.3",
-    "nyc": "^10.3.2",
+    "jest": "^20.0.0",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
