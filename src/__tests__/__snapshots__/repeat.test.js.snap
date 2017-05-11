@@ -5,3 +5,5 @@ exports[`repeat (when String.repeat does not exist) should throw a range error w
 exports[`repeat (when String.repeat does not exist) should throw a range error when count is negative 1`] = `"repeat count must be non-negative"`;
 
 exports[`repeat (when String.repeat does not exist) should throw a range error when count is negative infinity 1`] = `"repeat count must be non-negative"`;
+
+exports[`repeat (when String.repeat does not exist) should throw an exception when strings are 1 << 28 chars or longer 1`] = `"repeat count must not overflow maximum string size"`;

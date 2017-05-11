@@ -56,4 +56,10 @@ describe('repeat (when String.repeat does not exist)', () => {
       repeat(createStringWithoutRepeat('abc'), +Infinity);
     }).toThrowErrorMatchingSnapshot();
   });
+
+  test('should throw an exception when strings are 1 << 28 chars or longer', () => {
+    expect(() => {
+      repeat(createStringWithoutRepeat('a'), Math.pow(2, 28));
+    }).toThrowErrorMatchingSnapshot();
+  });
 });
