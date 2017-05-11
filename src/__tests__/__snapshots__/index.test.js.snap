@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skedify-uri-encoding should return correct hash when an object is given 1`] = `"eyJhS2V5IjoiYVZhbHVlIn0f"`;
+
+exports[`skedify-uri-encoding should return correct hash when empty object is given 1`] = `"e30f"`;
+
+exports[`skedify-uri-encoding should return correct hash when no object is given 1`] = `"dW5kZWZpbmVkd"`;
+
+exports[`skedify-uri-encoding should return correct object when string e30f is given 1`] = `Object {}`;
+
+exports[`skedify-uri-encoding should return correct object when string is given 1`] = `
+Object {
+  "aKey": "aValue",
+}
+`;
