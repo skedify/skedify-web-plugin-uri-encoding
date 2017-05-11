@@ -7,9 +7,12 @@ notifications:
 node_js:
   - '7'
   - '6'
+install:
+  - npm install -g codecov
 before_script:
   - npm prune
 after_success:
+  - codecov
   - npm run semantic-release
 branches:
   except:

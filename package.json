@@ -97,6 +97,8 @@
     }
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "coverageThreshold": {
       "global": {
         "branches": 100,
