@@ -13,6 +13,7 @@ before_script:
   - npm prune
 after_success:
   - codecov
+  - npm install request
   - npm run semantic-release
 branches:
   except:
