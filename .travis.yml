@@ -7,14 +7,10 @@ notifications:
 node_js:
   - '7'
   - '6'
-install:
-  - npm install -g codecov
 before_script:
   - npm run build
-  - npm prune
 after_success:
-  - codecov
-  - npm install request
+  - npm run publish-coverage
   - npm run semantic-release
 branches:
   except:
