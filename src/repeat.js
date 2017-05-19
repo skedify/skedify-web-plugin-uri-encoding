@@ -25,7 +25,7 @@ export default function repeat(string, count) {
     );
   }
   let rpt = '';
-  for (;;) {
+  while (true) {
     if ((count & 1) === 1) {
       rpt += string;
     }
