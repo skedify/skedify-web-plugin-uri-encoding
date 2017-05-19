@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Encoding of JSON object",
   "main": "lib/skedify-uri-encoding.js",
+  "module": "lib/skedify-uri-encoding.es6.js",
   "scripts": {
     "prebuild": "eslint --cache src/**/*.js && rimraf lib",
     "lint": "eslint --cache src/**/*.js test/**/*.js",
