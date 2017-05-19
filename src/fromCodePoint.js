@@ -1,5 +1,3 @@
-import stringFromCharCode from './stringFromCharCode';
-
 export default function fromCodePoint() {
   const MAX_SIZE = 0x4000;
   const codeUnits = [];
@@ -33,7 +31,7 @@ export default function fromCodePoint() {
       codeUnits.push(highSurrogate, lowSurrogate);
     }
     if (index + 1 === length || codeUnits.length > MAX_SIZE) {
-      result += stringFromCharCode.apply(null, codeUnits);
+      result += String.fromCharCode.apply(null, codeUnits);
       codeUnits.length = 0;
     }
   }
