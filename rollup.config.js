@@ -28,10 +28,19 @@ const plugins = [
 
 export default {
   entry: 'src/index.js',
-  dest: PACKAGE.main,
-  format: 'umd',
+  targets: [
+    {
+      format: 'umd',
+      moduleName: 'Skedify',
+      dest: PACKAGE.main
+    },
+    {
+      format: 'es',
+      moduleName: 'Skedify',
+      dest: PACKAGE.module
+    }
+  ],
   exports: 'named',
-  moduleName: 'Skedify',
   sourceMap: SOURCE_MAPS,
   banner: [
     '/**',
