@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Encoding of JSON object",
   "main": "lib/skedify-uri-encoding.js",
+  "module": "lib/skedify-uri-encoding.es6.js",
   "scripts": {
     "prebuild": "eslint --cache src/**/*.js && rimraf lib",
     "lint": "eslint --cache src/**/*.js test/**/*.js",
@@ -46,11 +47,12 @@
   },
   "devDependencies": {
     "atob": "^2.0.3",
-    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-istanbul": "^4.1.3",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "btoa": "^1.1.2",
     "codecov": "^2.2.0",
     "commitizen": "^2.9.6",

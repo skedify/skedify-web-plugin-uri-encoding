@@ -3,11 +3,27 @@
   "sourceType": "module",
   "filenameRelative": "index.js",
   "sourceMaps": "inline",
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ]
+  ],
   "plugins": [
     "syntax-trailing-function-commas"
   ],
   "env": {
     "test": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ]
+      ],
       "plugins": [
         "transform-es2015-modules-commonjs",
         "istanbul"
