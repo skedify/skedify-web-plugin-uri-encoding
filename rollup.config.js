@@ -1,13 +1,13 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import eslint from 'rollup-plugin-eslint';
-import babel from 'rollup-plugin-babel';
+import { eslint } from 'rollup-plugin-eslint'
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import babel from 'rollup-plugin-babel'
 
-import fs from 'fs';
+import fs from 'fs'
 
-const PACKAGE = require('./package.json');
+const PACKAGE = require('./package.json')
 
-const SOURCE_MAPS = process.env.NODE_ENV !== 'production';
+const SOURCE_MAPS = process.env.NODE_ENV !== 'production'
 
 const plugins = [
   eslint({
@@ -18,13 +18,16 @@ const plugins = [
     extensions: ['.js', '.json'],
   }),
   commonjs(),
-  babel(((babelrc) => {
-    return Object.assign(babelrc, {
-      babelrc: false,
-      plugins: babelrc.plugins.filter(p => p !== 'transform-es2015-modules-commonjs'),
-    });
-  })(JSON.parse(fs.readFileSync('./.babelrc', 'utf8')))),
-];
+  babel(
+    (babelrc =>
+      Object.assign(babelrc, {
+        babelrc: false,
+        plugins: babelrc.plugins.filter(
+          p => p !== 'transform-es2015-modules-commonjs'
+        ),
+      }))(JSON.parse(fs.readFileSync('./.babelrc', 'utf8')))
+  ),
+]
 
 export default {
   entry: 'src/index.js',
@@ -32,13 +35,13 @@ export default {
     {
       format: 'umd',
       moduleName: 'Skedify',
-      dest: PACKAGE.main
+      dest: PACKAGE.main,
     },
     {
       format: 'es',
       moduleName: 'Skedify',
-      dest: PACKAGE.module
-    }
+      dest: PACKAGE.module,
+    },
   ],
   exports: 'named',
   sourceMap: SOURCE_MAPS,
@@ -51,4 +54,4 @@ export default {
     ' */',
   ].join('\n'),
   plugins,
-};
+}

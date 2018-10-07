@@ -1,4 +1,4 @@
-import codePointAt from '../codePointAt';
+import codePointAt from '../codePointAt'
 
 const testCases = [
   // String that starts with a BMP symbol
@@ -52,24 +52,28 @@ const testCases = [
   { value: '\uDF06abc', at: false, toBe: 0xdf06 },
   { value: '\uDF06abc', at: NaN, toBe: 0xdf06 },
   { value: '\uDF06abc', at: null, toBe: 0xdf06 },
-];
+]
 
 describe('codePointAt (when String.codePointAt exist)', () => {
   testCases.forEach(testCase => {
-    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${testCase.toBe}`, () => {
-      expect(codePointAt(testCase.value, testCase.at)).toBe(testCase.toBe);
-    });
-  });
-});
+    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${
+      testCase.toBe
+    }`, () => {
+      expect(codePointAt(testCase.value, testCase.at)).toBe(testCase.toBe)
+    })
+  })
+})
 
 describe('codePointAt (when String.codePointAt does not exist)', () => {
   testCases.forEach(testCase => {
-    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${testCase.toBe}`, () => {
-      const aString = new String(testCase.value);
+    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${
+      testCase.toBe
+    }`, () => {
+      const aString = new String(testCase.value)
 
-      aString.codePointAt = undefined;
+      aString.codePointAt = undefined
 
-      expect(codePointAt(aString, testCase.at)).toBe(testCase.toBe);
-    });
-  });
-});
+      expect(codePointAt(aString, testCase.at)).toBe(testCase.toBe)
+    })
+  })
+})
