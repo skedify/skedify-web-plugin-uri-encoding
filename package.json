@@ -4,6 +4,13 @@
   "description": "Encoding of JSON object",
   "main": "lib/skedify-uri-encoding.js",
   "module": "lib/skedify-uri-encoding.es6.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run check-coverage"
+    }
+  },
   "scripts": {
     "prebuild": "npm run lint && rimraf lib",
     "lint": "eslint --cache src/**/*.js",
@@ -14,13 +21,9 @@
     "tdd": "npm run test -- --watch",
     "check-coverage": "cross-env CI=true NODE_ENV=test jest --collectCoverageFrom=\"src/**/*.js\" --coverage",
     "publish-coverage": "codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit": "git-cz",
-    "precommit": "npm run lint",
-    "commitmsg": "node_modules/.bin/validate-commit-msg",
-    "prepush": "npm test && npm run check-coverage",
-    "postmerge": "npm install",
-    "postrewrite": "npm install"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once",
+    "commit": "git-cz"
   },
   "homepage": "https://github.com/skedify/skedify-uri-encoding",
   "author": {
@@ -47,6 +50,8 @@
     "json-stable-stringify": "^1.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.1.2",
     "atob": "^2.0.3",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -55,17 +60,17 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "btoa": "^1.1.2",
-    "codecov": "^2.2.0",
-    "commitizen": "^2.9.6",
+    "codecov": "^3.1.0",
+    "commitizen": "^3.0.2",
     "cross-env": "^5.2.0",
-    "cz-conventional-changelog": "^2.0.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.6.1",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-better": "^0.1.5",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-require-in-package": "^1.0.3",
-    "husky": "^0.13.3",
+    "husky": "^1.1.1",
     "jest": "^20.0.0",
     "prettier": "^1.14.3",
     "request": "^2.81.0",
@@ -76,18 +81,12 @@
     "rollup-plugin-eslint": "^5.0.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-watch": "^3.2.2",
-    "semantic-release": "^6.3.6",
-    "validate-commit-msg": "^2.12.1"
+    "semantic-release": "^15.9.17",
+    "travis-deploy-once": "^5.0.9"
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "validate-commit-msg": {
-      "types": "conventional-commit-types",
-      "subjectPattern": "[a-z].+",
-      "subjectPatternErrorMsg": "Subject is invalid",
-      "helpMessage": "Use `npm run commit`. The subject should complete the following sentence: 'When applied, this commit will ...''"
+      "path": "cz-conventional-changelog"
     }
   },
   "jest": {
