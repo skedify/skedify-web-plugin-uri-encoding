@@ -1,4 +1,4 @@
-import codePointAt from '../codePointAt'
+import codePointAt from './codePointAt'
 
 const testCases = [
   // String that starts with a BMP symbol
@@ -56,8 +56,8 @@ const testCases = [
 
 describe('codePointAt (when String.codePointAt exist)', () => {
   testCases.forEach(testCase => {
-    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${
-      testCase.toBe
+    it(`should be ${testCase.toBe} for position ${testCase.at} of ${
+      testCase.value
     }`, () => {
       expect(codePointAt(testCase.value, testCase.at)).toBe(testCase.toBe)
     })
@@ -66,8 +66,8 @@ describe('codePointAt (when String.codePointAt exist)', () => {
 
 describe('codePointAt (when String.codePointAt does not exist)', () => {
   testCases.forEach(testCase => {
-    test(`codePointAt ${testCase.at} of ${testCase.value} should be ${
-      testCase.toBe
+    it(`should be $[testCase.toBe} for position ${testCase.at} of ${
+      testCase.value
     }`, () => {
       const aString = new String(testCase.value)
 

@@ -19,7 +19,7 @@
     "watch": "rollup -c --watch",
     "test": "cross-env NODE_ENV=test jest",
     "tdd": "npm run test -- --watch",
-    "check-coverage": "cross-env CI=true NODE_ENV=test jest --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "check-coverage": "cross-env CI=true NODE_ENV=test jest --coverage",
     "publish-coverage": "codecov",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once",
@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-require-in-package": "^1.0.3",
     "husky": "^1.1.1",
-    "jest": "^20.0.0",
+    "jest": "^23.6.0",
     "prettier": "^1.14.3",
     "request": "^2.81.0",
     "rimraf": "^2.6.1",
@@ -87,18 +87,6 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
-    }
-  },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
     }
   }
 }

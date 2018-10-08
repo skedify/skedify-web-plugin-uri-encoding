@@ -1,4 +1,4 @@
-import fromCodePoint from '../fromCodePoint'
+import fromCodePoint from './fromCodePoint'
 
 const testCases = [
   { expect: fromCodePoint(''), toBe: '\0' },
@@ -33,13 +33,13 @@ const testCasesThrowsError = [
 
 describe('fromCodePoint', () => {
   testCases.forEach(testCase => {
-    test(`expect ${testCase.expect} toBe ${testCase.toBe}`, () => {
+    it(`should be ${testCase.toBe} for value ${testCase.expect}`, () => {
       expect(testCase.expect).toBe(testCase.toBe)
     })
   })
 
   testCasesThrowsError.forEach(testCase => {
-    test(`expect ${testCase.value} to throw a RangeError`, () => {
+    it(`should throw a RangeError for value ${testCase.value}`, () => {
       /* eslint-disable-next-line max-nested-callbacks */
       expect(() => fromCodePoint(testCase.value)).toThrowErrorMatchingSnapshot()
     })

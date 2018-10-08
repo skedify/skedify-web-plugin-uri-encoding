@@ -1,4 +1,4 @@
-import repeat from '../repeat'
+import repeat from './repeat'
 
 const createStringWithoutRepeat = string => {
   const aString = new String(string)
@@ -24,7 +24,7 @@ const testCases = [
 
 describe('repeat (when String.repeat exist)', () => {
   testCases.forEach(testCase => {
-    test(`should return ${testCase.toBe} on string ${
+    it(`should return ${testCase.toBe} on string ${
       testCase.string
     } with count ${testCase.count}`, () => {
       expect(repeat(testCase.string, testCase.count)).toBe(testCase.toBe)
@@ -34,7 +34,7 @@ describe('repeat (when String.repeat exist)', () => {
 
 describe('repeat (when String.repeat does not exist)', () => {
   testCases.forEach(testCase => {
-    test(`should return ${testCase.toBe} on string ${
+    it(`should return ${testCase.toBe} on string ${
       testCase.string
     } with count ${testCase.count}`, () => {
       expect(
@@ -43,25 +43,25 @@ describe('repeat (when String.repeat does not exist)', () => {
     })
   })
 
-  test('should throw a range error when count is negative', () => {
+  it('should throw a range error when count is negative', () => {
     expect(() => {
       repeat(createStringWithoutRepeat('abc'), -1)
     }).toThrowErrorMatchingSnapshot()
   })
 
-  test('should throw a range error when count is negative infinity', () => {
+  it('should throw a range error when count is negative infinity', () => {
     expect(() => {
       repeat(createStringWithoutRepeat('abc'), -Infinity)
     }).toThrowErrorMatchingSnapshot()
   })
 
-  test('should throw a range error when count is infinity', () => {
+  it('should throw a range error when count is infinity', () => {
     expect(() => {
       repeat(createStringWithoutRepeat('abc'), Number(Infinity))
     }).toThrowErrorMatchingSnapshot()
   })
 
-  test('should throw an exception when strings are 1 << 28 chars or longer', () => {
+  it('should throw an exception when strings are 1 << 28 chars or longer', () => {
     expect(() => {
       repeat(createStringWithoutRepeat('a'), Math.pow(2, 28))
     }).toThrowErrorMatchingSnapshot()
