@@ -1,39 +1,56 @@
 export default function repeat(string, count) {
+  /* eslint-disable-next-line better/no-typeofs */
   if (string.repeat && typeof string.repeat === 'function') {
-    return string.repeat(count);
+    return string.repeat(count)
   }
-  count = +count;
-  if (count !== count) {
-    count = 0;
+
+  let counter = Number(count)
+  let newString = string
+
+  if (isNaN(counter)) {
+    counter = 0
   }
-  if (count < 0) {
-    throw new RangeError('repeat count must be non-negative');
+
+  if (counter < 0) {
+    throw new RangeError('repeat count must be non-negative')
   }
-  if (count === Infinity) {
-    throw new RangeError('repeat count must be less than infinity');
+
+  if (counter === Infinity) {
+    throw new RangeError('repeat count must be less than infinity')
   }
-  count = Math.floor(count);
-  if (string.length === 0 || count === 0) {
-    return '';
+
+  counter = Math.floor(counter)
+
+  if (newString.length === 0 || counter === 0) {
+    return ''
   }
+
   // Ensuring count is a 31-bit integer allows us to heavily optimize the
   // main part. But anyway, most current (August 2014) browsers can't handle
   // strings 1 << 28 chars or longer, so:
-  if (string.length * count >= 1 << 28) {
-    throw new RangeError(
-      'repeat count must not overflow maximum string size',
-    );
+  /* eslint-disable-next-line no-bitwise */
+  if (newString.length * counter >= 1 << 28) {
+    throw new RangeError('repeat count must not overflow maximum string size')
   }
-  let rpt = '';
+
+  let rpt = ''
+
+  /* eslint-disable-next-line better/no-whiles,no-constant-condition */
   while (true) {
-    if ((count & 1) === 1) {
-      rpt += string;
+    /* eslint-disable-next-line no-bitwise */
+    if ((counter & 1) === 1) {
+      rpt += newString
     }
-    count >>>= 1;
-    if (count === 0) {
-      break;
+
+    /* eslint-disable-next-line no-bitwise */
+    counter >>>= 1
+
+    if (counter === 0) {
+      break
     }
-    string += string;
+
+    newString += newString
   }
-  return rpt;
+
+  return rpt
 }
