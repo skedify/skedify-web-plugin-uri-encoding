@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fromCodePoint should throw a RangeError for value +Infinity 1`] = `"Invalid code point: Infinity"`;
+
+exports[`fromCodePoint should throw a RangeError for value /./ 1`] = `"Invalid code point: NaN"`;
+
+exports[`fromCodePoint should throw a RangeError for value [object Object] 1`] = `"Invalid code point: NaN"`;
+
+exports[`fromCodePoint should throw a RangeError for value _ 1`] = `"Invalid code point: NaN"`;
+
+exports[`fromCodePoint should throw a RangeError for value -1 1`] = `"Invalid code point: -1"`;
+
+exports[`fromCodePoint should throw a RangeError for value -Infinity 1`] = `"Invalid code point: -Infinity"`;
+
+exports[`fromCodePoint should throw a RangeError for value -Infinity 2`] = `"Invalid code point: -Infinity"`;
+
+exports[`fromCodePoint should throw a RangeError for value 0.03 1`] = `"Invalid code point: 0.03"`;
+
+exports[`fromCodePoint should throw a RangeError for value 3.14 1`] = `"Invalid code point: 3.14"`;
+
+exports[`fromCodePoint should throw a RangeError for value 1114112 1`] = `"Invalid code point: 1114112"`;
+
+exports[`fromCodePoint should throw a RangeError for value Infinity 1`] = `"Invalid code point: Infinity"`;
+
+exports[`fromCodePoint should throw a RangeError for value NaN 1`] = `"Invalid code point: NaN"`;
+
+exports[`fromCodePoint should throw a RangeError for value undefined 1`] = `"Invalid code point: NaN"`;
