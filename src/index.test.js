@@ -1,14 +1,5 @@
 /* eslint-disable no-undef */
-
-import atob from 'atob'
-import btoa from 'btoa'
-
 import { encodeURIParameters, decodeURIParameters } from '.'
-
-if (!window.atob || !window.btoa) {
-  window.atob = atob
-  window.btoa = btoa
-}
 
 const exampleObject = {
   aKey: 'aValue',

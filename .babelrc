@@ -12,7 +12,8 @@
     ]
   ],
   "plugins": [
-    "syntax-trailing-function-commas"
+    "syntax-trailing-function-commas",
+    "transform-es2015-modules-commonjs"
   ],
   "env": {
     "test": {
@@ -25,7 +26,6 @@
         ]
       ],
       "plugins": [
-        "transform-es2015-modules-commonjs",
         "istanbul"
       ]
     }
