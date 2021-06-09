@@ -18,8 +18,8 @@ const main_examples = [
     encoded:
       'eyJvZmZpY2UiOiJzb21lLW9mZmljZSIsInN0YXRlIjoic29tZS1zdGF0ZSIsInN1YmplY3QiOiJzb21lLXN1YmplY3QifQg',
   },
-]
+];
 
 module.exports = {
   main: main_examples,
-}
+};
