@@ -1,32 +1,15 @@
 {
-  "sourceRoot": "src",
-  "sourceType": "module",
-  "filenameRelative": "index.js",
-  "sourceMaps": "inline",
-  "presets": [
-    [
-      "es2015",
-      {
-        "modules": false
-      }
-    ]
-  ],
-  "plugins": [
-    "syntax-trailing-function-commas",
-    "transform-es2015-modules-commonjs"
-  ],
   "env": {
     "test": {
       "presets": [
         [
-          "es2015",
+          "@babel/preset-env",
           {
-            "modules": false
+            "targets": {
+              "node": "current"
+            }
           }
         ]
-      ],
-      "plugins": [
-        "istanbul"
       ]
     }
   }
