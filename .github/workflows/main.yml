@@ -73,8 +73,9 @@ jobs:
 
   publish:
     name: Publish extra information about the build
-    needs: test
+    if: startsWith(github.ref, 'refs/heads/master') || startsWith(github.ref, 'refs/tags/v')
 
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -90,8 +91,15 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Publish Semantic Release
+        if: startsWith(github.ref, 'refs/heads/master')
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+
+      - name: Publish Release Candidate
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
