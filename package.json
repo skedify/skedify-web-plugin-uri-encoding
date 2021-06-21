@@ -23,7 +23,7 @@
     "tdd": "npm run test -- --watch",
     "lint": "tsdx lint client",
     "format": "npm run lint -- --fix",
-    "prepare": "husky install && tsdx build",
+    "prepare": "husky install && npm run build",
     "check-coverage": "npm run test -- --ci --coverage",
     "commit": "git-cz",
     "commit:lint": "commitlint --edit \"$1\"",
