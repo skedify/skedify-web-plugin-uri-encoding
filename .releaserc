@@ -8,8 +8,8 @@
       "prerelease": "rc"
     },
     {
-      "name": "(rc.*|rc.*/*)",
-      "prerelease": "${name.replace(/[^a-zA-Z0-9.]+/g, '-')}"
-    },
+      "name": "rc*/*",
+      "prerelease": "${name.replace(/[^a-zA-Z0-9]+/g, '')}"
+    }
   ]
 }
