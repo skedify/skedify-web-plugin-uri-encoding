@@ -53,22 +53,11 @@ and [semantic-release](https://github.com/semantic-release/semantic-release) for
 
 ### Release Candidates
 
-To make a (temporary) release candidate, you can use the following commands:
+To make a (temporary) release candidate, push a new tag. The version in `package.json` will be the same as the tagname without the `v` prefix.
 
 ```bash
-# Create a new rc from the latest/remote develop
-npm run release-candidate
+git tag v5.0.0-rc.1 && git push origin v5.0.0-rc.1
 ```
-
-or 
-
-```bash
-# Create a new rc from a specific branch
-npm run release-candidate -- feature/SKED-XXXX
-```
-
-That command will make a new `rc` branch (locally and remotely) on which `semantic-release` is configured
-to create a new release candidate (see `.releaserc`).
 
 ### Final Releases
 
