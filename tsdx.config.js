@@ -2,8 +2,13 @@
 const replace = require('@rollup/plugin-replace');
 
 module.exports = {
-  // See https://github.com/formium/tsdx/issues/981
   rollup(config, opts) {
+    // see https://github.com/formium/tsdx/issues/179
+    if (config.output.format === 'umd') {
+      delete config.external;
+    }
+
+    // See https://github.com/formium/tsdx/issues/981
     config.plugins = config.plugins.map(p =>
       p.name === 'replace'
         ? replace({

@@ -73,8 +73,8 @@ jobs:
 
   publish:
     name: Publish extra information about the build
+    if: startsWith(github.ref, 'refs/heads/master')
     needs: test
-
     runs-on: ubuntu-latest
 
     steps:
@@ -95,3 +95,40 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+
+  release-candidate:
+    name: Publish a release candidate
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo ${GITHUB_REF/refs\/tags\//} | sed 's/^v//')
+
+      - name: Set the tag name to package.json
+        run: >-
+          node -e "
+            const fs = require('fs'); 
+            const packageJson = require('./package.json'); 
+            const version = '${{ steps.get_version.outputs.VERSION }}';
+            fs.writeFileSync('./package.json', JSON.stringify({ ...packageJson, version }));
+          "
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
+
+      - name: Release
+        run: npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

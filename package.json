@@ -16,19 +16,18 @@
   "peerDependencies": {},
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build --format cjs,esm,umd",
+    "build": "tsdx build --format cjs,esm,umd --name SkedifyUriEncoding",
     "test": "npm run test:client && npm run test:src --",
     "test:src": "tsdx test",
     "test:client": "node client/test/run.js ./client/test/*-test.js",
     "tdd": "npm run test -- --watch",
     "lint": "tsdx lint client",
     "format": "npm run lint -- --fix",
-    "prepare": "husky install && tsdx build",
+    "prepare": "husky install && npm run build",
     "check-coverage": "npm run test -- --ci --coverage",
     "commit": "git-cz",
     "commit:lint": "commitlint --edit \"$1\"",
-    "semantic-release": "semantic-release",
-    "release-candidate": "npm_scripts/release-candidate.sh"
+    "semantic-release": "semantic-release"
   },
   "prettier": {
     "printWidth": 80,
